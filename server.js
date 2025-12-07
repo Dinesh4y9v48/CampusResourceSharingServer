@@ -2,13 +2,13 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-// Render / Cloud port
+// Render / cloud port
 const PORT = process.env.PORT || 8080;
 
-// Static files serve (CSS, JS, images if any)
+// Static files (index.html, etc.)
 app.use(express.static(__dirname));
 
-// Serve your HTML file
+// Main page: send index.html
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });

@@ -1,19 +1,19 @@
 const express = require("express");
+const path = require("path");
 const app = express();
 
-const PORT = process.env.PORT || 8000;
+// Render apna PORT dega, local pe 8080 use ho jayega
+const PORT = process.env.PORT || 8080;
+
+// agar future me CSS/JS alag files banao to ye line kaam aayegi
+app.use(express.static(__dirname));
 
 app.get("/", (req, res) => {
-  res.send("✅ Campus Resource Sharing Server live hai (fixed URL)!");
-});
-
-app.get("/api/status", (req, res) => {
-  res.json({
-    status: "ok",
-    message: "Server sahi se chal raha hai Render pe."
-  });
+  // yahi tumhara Java wale server ka HTML hai, ab index.html ke through
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`🚀 Campus Resource Sharing UI live at port ${PORT}`);
 });
+//serve index.html

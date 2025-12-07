@@ -1,0 +1,12 @@
+{
+  "name": "campus-resource-sharing-server",
+  "version": "1.0.0",
+  "description": "Campus Resource Sharing Platform backend (fixed server for Render).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
